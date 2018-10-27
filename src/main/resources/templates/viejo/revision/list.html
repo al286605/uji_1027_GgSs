@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Mostrar información de las preferencias</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"     
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+   <h1>Información de las preferencias</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>CIF</th>
+         <th>Id de la oferta</th>
+         <th>Id de la oferta de prácticas</th>
+         <th>Descripción</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="revision: ${revisiones}"> 
+         <td th:text="${revision.cif}"></td> 
+         <td th:text="${revision.id}"></td>
+         <td th:text="${revision.id_oferta}"></td>
+         <td th:text="${revision.descripcion}"></td>
+         <td><a th:href="@{/revision/update/{cif}(cif=${revision.cif})}">Editar la revisión</a></td>
+         <td><a th:href="@{/revision/delete/{cif}(cif=${revision.cif})}">Borrar la revisión</a></td>
+          
+       </tr>
+     </tbody>
+   </table>
+   <a href="add.html">Añadir revisión</a> 
+    <a href="../index.html">INICIO</a>
+</body>
+</html>

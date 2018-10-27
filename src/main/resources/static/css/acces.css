@@ -1,0 +1,34 @@
+/* @charset "ISO-8859-1"; */
+
+/* Capçalera de nivell 1 */ 
+
+.jumbotron{
+	font-family: Arial; 
+	color: white;
+	background-color: blue;
+	text-align: center;
+	height: 200px;
+}
+h1{
+	font-size: 75px;
+    font-family: 'Bungee Inline', cursive;
+    font-family: 'Aclonica', sans-serif;
+}
+
+.container{
+	text-align:center;
+}
+
+.form-control{
+	border: none;
+    border-bottom: 2px solid black;
+}
+footer{
+	text-align: center;
+}
+
+/* Classe CSS error */
+.error {
+     color: red;
+     font-size:25px;
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Inici - SAPE</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/acces.css"
+	th:href="@{/css/acces.css}" />
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-1">
+					<div class="btn-group-vertical">
+						<a href="/dcc" type="button" class="btn btn-primary">Revisar
+							ofertes</a> 
+						<a href="/btc/ofertes.html" type="button"
+							class="btn btn-primary">Llistar ofertes</a>
+						<a href="/btc/preferencies_alumnes.html" type="button"
+							class="btn btn-primary">Preferencies dels alumnes</a> 
+						<a href="/btc/asignacions.html" type="button" class="btn btn-primary">Assignacions
+							fetes</a>
+					</div>
+				</div>
+				<div class="col-sm-10">
+					<div class="row justify-content-center">
+						<h2>Confirmació de práctiques</h2>
+						<h3
+							th:text="'Projecte ' + ${oferta.titulo} + ' per al alumne: '+ ${alumno.nombre} + ' ' + ${alumno.apellido}"></h3>
+						<form action="#" th:action="@{./{id}(id=${oferta.id})}"
+							th:object="${asignacion}" method="post">
+							<h4>Informació de l'alumne</h4>
+							<table class="table table-responsive table-striped">
+								<tr>
+									<th>Nom y cognoms:</th>
+									<td th:text="${alumno.apellido} + ', ' +${alumno.nombre}"></td>
+								</tr>
+								<tr>
+									<th>Itinerari:</th>
+									<td th:text="${alumno.itinerario}"></td>
+								</tr>
+								<tr>
+									<th>Semestre de preferencia:</th>
+									<td th:text="${alumno.semestre_inicio_instancia}"></td>
+								</tr>
+								<tr>
+									<th>Nombre de crédits aprovats:</th>
+									<td th:text="${alumno.numero_de_creditos_aprobados}"></td>
+								</tr>
+								<tr>
+									<td colspan="2"><h4
+											th:text="'Informació de la pràctica amb preferencia ' + ${oferta.prioridad}"></h4>
+									</td>
+								</tr>
+								<tr>
+									<th>Títol:
+									<td t h:text="${oferta.titulo}"></td>
+								</tr>
+								<tr>
+									<th>Descripció:</th>
+									<td th:text="${oferta.descripcion}"></td>
+								</tr>
+								<tr>
+									<th>Itineraris:</th>
+									<td>
+										<div th:each="iti: ${oferta.itinerario}">
+											<div th:text="${iti}"></div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>Nom de l'empresa:</th>
+									<td th:text="${oferta.empresa}"></td>
+								</tr>
+								<tr>
+									<th>Encarregat de l'empresa:</th>
+									<td th:text="${oferta.persona_de_contacto}"></td>
+								</tr>
+								<tr>
+									<th>Sou:</th>
+
+									<td th:text="${oferta.pago} + '€'"></td>
+								</tr>
+								<tr>
+									<td colspan="2"><h4>Tutor asignat</h4></td>
+								</tr>
+								<tr>
+									<th>Nom:</th>
+									<td th:text="${tut.nombre}"></td>
+								</tr>
+								<tr>
+									<th>Departament:</th>
+									<td th:text="${tut.departamento}"></td>
+								</tr>
+								<tr>
+									<th>Despatx:</th>
+									<td th:text="${tut.despacho}"></td>
+								</tr>
+								<tr>
+									<td colspan="2"><a class="btn btn-success btn-md"
+										role="button" href="/btc/confirmar_asignacio_oferta.html ">Confirmar
+											asignació de práctiques</a></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+
+			</div>
+			<div class="row justify-content-between">
+				<div class="col-3">
+					<a href="/btc/preferencies_alumnes.html"
+						class="btn btn-outline-primary btn-block" role="button">Torna</a>
+				</div>
+				<div class="col-3">
+					<a href="/btc/ofertes.html"
+						class="btn btn-outline-primary btn-block" role="button">Totes
+						les ofertes</a>
+				</div>
+			</div>
+			<br />
+			<p>
+				<a href="/eixida.html" class="btn btn-outline-primary btn-block"
+					role="button">Eixir de l'aplicació</a>
+			</p>
+		</div>
+	</div>
+
+</body>
+</html>

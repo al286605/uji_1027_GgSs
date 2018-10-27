@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Mostrar tutores</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"     
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+   <h1>Listado de tutores</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>Nombre</th>
+         <th>Correo</th>
+         <th>Despacho</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="tutor: ${tutores}"> 
+         <td th:text="${tutor.nombre}"></td> 
+         <td th:text="${tutor.correo}"></td>
+         <td th:text="${tutor.despacho}"></td>
+         <td><a th:href="@{/tutor/update/{nombre}(nombre=${tutor.nombre})}">Editar tutor</a></td>
+         <td><a th:href="@{/tutor/delete/{nombre}(nombre=${tutor.nombre})}">Borrar tutor</a></td>
+       </tr>
+     </tbody>
+   </table>
+   <a href="add.html">Añadir tutor</a> 
+    <a href="../index.html">INICIO</a>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Gestionar Empresa</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"     
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+   <h1>Lista de Empresas</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>CIF</th>
+         <th>Nombre</th>
+         <th>Persona de contacto</th>
+         <th>Telefono</th>
+         <th>Dirección</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="empresa: ${empresas}"> 
+         <td th:text="${empresa.cif}"></td> 
+         <td th:text="${empresa.nombre}"></td>
+         <td th:text="${empresa.persona_contacto}"></td>
+         <td th:text="${empresa.telefono}"></td>
+         <td th:text="${empresa.direccion}"></td>
+         <td><a th:href="@{/empresa/update/{nom}(nom=${empresa.nombre})}">Edita la empresa</a> 
+         </td>
+         <td><a th:href="@{/empresa/delete/{nom}(nom=${empresa.nombre})}">Borra la empresa</a>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+   <a href="add.html">Añadir empresa</a> 
+</body>
+</html>

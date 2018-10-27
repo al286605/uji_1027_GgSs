@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Información de la oferta</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Añadir información de la oferta</h2>
+    <form action="#" th:action="@{/ofertaDePracticas/add}" 
+                     th:object="${ofertaDePracticas}" method="post"> 
+      <table>
+        <tr>
+            <td><label>Fecha</label></td>
+            <td><input type="text" th:field="*{fecha}" /></td> 
+        </tr>
+        <tr>
+            <td><label>Remuneración</label></td>
+            <td><input type="text" th:field="*{pago}" /></td>
+        </tr>
+        <tr>
+            <td><label>Estado</label></td>
+            <td><input type="text" th:field="*{estado}" /></td>
+        </tr>
+        <tr>
+            <td><label>Descripción</label></td>
+            <td><input type="text" th:field="*{descripcion}" /></td>
+        </tr>
+        <td colspan="2"><input type="submit" value="Añadir información" /></td>
+        </tr>
+      </table>
+    </form>
+     <a href="../index.html">INICIO</a>
+</body>
+</html>

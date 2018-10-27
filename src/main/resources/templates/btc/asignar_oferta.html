@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Inici - SAPE</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/acces.css"
+	th:href="@{/css/acces.css}" />
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="row justify-content-between">
+			<div class="col-3">
+				<a href="/btc/preferencies_alumnes.html" class="btn btn-outline-primary btn-block"
+					role="button">Tornar</a>
+			</div>
+			<div class="col-4">
+				<a th:href="@{/btc/preferencies_alumnes/{id}(id=${alumno.alias})}" class="btn btn-outline-primary btn-block"
+					role="button">Tornar a les preferencies del alumne</a>
+			</div>
+			<div class="col-3">
+				<a href="/eixida.html" class="btn btn-outline-primary btn-block"
+					role="button">Eixir de l'aplicació</a>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="btn-group-vertical">
+						<a href="/dcc" type="button" class="btn btn-primary">Revisar
+							ofertes</a> 
+						<a href="/btc/ofertes.html" type="button"
+							class="btn btn-primary">Llistar ofertes</a>
+						<a href="/btc/preferencies_alumnes.html" type="button"
+							class="btn btn-primary">Preferencies dels alumnes</a> 
+						<a href="/btc/asignacions.html" type="button" class="btn btn-primary">Assignacions
+							fetes</a>
+					</div>
+				</div>
+
+				<div class="col-sm-8">
+					<p>Informació sobre les preferències dels alumnes per a
+						l'estada en práctiques</p>
+					<div class="row justify-content-center">
+						<div class="col-sm-8">
+							<div th:if="${oferta.estado} == 'asignada'">
+								<div class="alert alert-danger" role="alert">Aquesta
+									oferta ha sigut asignada a un altre alumne</div>
+							</div>
+							<div th:if="!${permiso_asignar}">
+								<div class="alert alert-danger" role="alert">Aquest alumne te una oferta asignada</div>
+							</div>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<h3
+							th:text="'Projecte ' + ${oferta.titulo} + ' per al alumne '+ ${alumno.nombre} + ' ' + ${alumno.apellido}"></h3>
+						<form action="#" th:action="@{./{id}(id=${oferta.id})}"
+							th:object="${asignacion}" method="post">
+							<h4>Informació sobre l'alumne</h4>
+
+							<table class="table table-responsive table-striped">
+								<tr>
+									<th>Nom y cognoms:</th>
+									<td th:text="${alumno.apellido} + ', ' +${alumno.nombre}"></td>
+								</tr>
+								<tr>
+									<th>Itinerari:</th>
+									<td th:text="${alumno.itinerario}"></td>
+								</tr>
+								<tr>
+									<th>Semestre de preferència:</th>
+									<td th:text="${alumno.semestre_inicio_instancia}"></td>
+								</tr>
+								<tr>
+									<th>Nombre de crédits aprovats:</th>
+									<td th:text="${alumno.numero_de_creditos_aprobados}"></td>
+								</tr>
+								<tr>
+									<td colspan="2"><h4
+											th:text="'Informació de la pràctica amb preferencia ' + ${oferta.prioridad}"></h4>
+									</td>
+								</tr>
+								<tr>
+									<th>Títol:</label></th>
+									<td th:text="${oferta.titulo}"></td>
+								</tr>
+								<tr>
+									<th>Descripció:</th>
+									<td th:text="${oferta.descripcion}"></td>
+								</tr>
+								<tr>
+									<th>Itineraris:</th>
+									<td>
+										<div th:each="iti: ${oferta.itinerario}">
+											<div th:text="${iti}"></div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>Nom de l'empresa:</th>
+									<td th:text="${oferta.persona_de_contacto}"></td>
+								</tr>
+								<tr>
+									<th>Encarregat de l'empresa:</th>
+									<td th:text="${oferta.persona_de_contacto}"></td>
+								</tr>
+								<tr>
+									<th>Sou:</th>
+									<td th:text="${oferta.pago} + '€'"></td>
+								</tr>
+								<div th:if="${oferta.estado} == 'Visible per alumnes' and ${permiso_asignar}">
+									<tr>
+										<td colspan="2"><h4>Llistat de mestres per a ser
+												tutors</h4></td>
+									</tr>
+									<tr>
+										<td colspan="2"><select th:field="*{profesor}">
+												<option th:each="tut: ${lista_tutores}"
+													th:value="${tut.alias}"
+													th:utext="${tut.nombre} + ' - ' + ${tut.departamento}" />
+										</select></td>
+									</tr>
+									<tr>
+										<td colspan="2"><input class="btn btn-success btn-md"
+											role="button" type="submit"
+											value="Asignar pràctica al alumne" /></td>
+									</tr>
+								</div>
+
+							</table>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

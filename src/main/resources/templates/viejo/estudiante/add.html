@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Crear nuevo estudiante</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Nuevo estudiante</h2>
+    <form action="#" th:action="@{/estudiante/add}" 
+                     th:object="${estudiante}" method="post"> 
+      <table>
+        <tr>
+            <td><label>Dni</label></td>
+            <td><input type="text" th:field="*{dni}" /></td> 
+        </tr>
+        <tr>
+            <td><label>Nombre</label></td>
+            <td><input type="text" th:field="*{nombre}" /></td>
+        </tr>
+        <tr>
+            <td><label>Apellido</label></td>
+            <td><input type="text" th:field="*{apellido}" /></td>
+        </tr>
+        <tr>
+            <td><label>Telefono</label></td>
+            <td><input type="number" th:field="*{tlf}" /></td>
+        </tr>
+        <tr>
+            <td><label>E-mail</label></td>
+            <td><input type="text" th:field="*{email}" /></td>
+        </tr>
+        <tr>
+            <td><label>Año</label></td>
+            <td><input type="number" th:field="*{anyo}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Añade estudiante" /></td>
+        </tr>
+      </table>
+    </form>
+     <a href="../index.html">INICIO</a>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Sistema de Assignació de Projectes en Empreses - Acces</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/acces.css"
+	th:href="@{/css/acces.css}" />
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+	<div class="row justify-content-between">
+		<div class="col-3">
+			<a href="/"
+				class="btn btn-outline-primary btn-block" role="button">Inici</a>
+		</div>
+		<div class="col-3">
+			<a href="/eixida.html" class="btn btn-outline-primary btn-block"
+				role="button">Eixir de l'aplicació</a>
+		</div>
+	</div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div>
+					<h2>Informació sobre el projecte</h2>
+					<table class="table table-responsive">
+						<tr>
+							<th>Titol:</th>
+							<td th:text="${oferta.titulo}"></td>
+						</tr>
+						<tr>
+							<th>Descripció:</th>
+							<td th:text="${oferta.descripcion}"></td>
+						</tr>
+						<tr>
+							<th>Itineraris:</th>
+							<td>
+								<div th:each="iti: ${oferta.itinerario}">
+									<div th:text="${iti}"></div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Encarregat de l'empresa:</th>
+							<td th:text="${oferta.persona_de_contacto}"></td>
+						</tr>
+						<tr>
+							<th>Estat:</th>
+							<td th:text="${oferta.estado}"></td>
+						</tr>
+						<tr>
+							<th>Sou:</th>
+							<td th:text="${oferta.pago}"></td>
+						</tr>
+						<div th:if="${oferta.estado} == 'Rebutjada'">
+						<tr>
+							<th>Data de revisió:</th>
+							<td th:text="${#dates.format(oferta.fecha_revision,'dd MMM yyyy') }"></td>
+						</tr>
+						<tr>
+							<th>Crítica de revisió:</th>
+							<td th:text="${oferta.texto_revision}"></td>
+						</tr>
+						</div>
+						<tr>
+						­	<td colspan="2">
+								<a class="btn btn-info btn-block" role="button"
+								th:href="@{{id}/historic (id=${oferta.id})}">Veure historic de revisions</a>
+							</td>
+						</tr>
+						<tr>
+							<td th:if="${oferta.isEdit()} == true"><a
+								class="btn btn-danger btn-block" role="button"
+								th:href="@{../esborrar/{id}(id=${oferta.id})}">Esborrar</a></td>
+							<td th:if="${oferta.isEdit()} == true"><a
+								class="btn btn-success btn-block" role="button"
+								th:href="@{../edicio/{id}(id=${oferta.id})}">Editar</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

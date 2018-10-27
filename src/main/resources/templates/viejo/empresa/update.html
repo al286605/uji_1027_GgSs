@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Crear nueva empresa</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Nueva emrpesa</h2>
+    <form action="#" th:action="@{/empresa/update/{nom}(nom=${empresa.nombre}}" 
+                     th:object="${empresa}" method="post"> 
+      <table>
+        <tr>
+            <td><label>CIF</label></td>
+            <td><input type="text" th:field="*{cif}" /></td> 
+        </tr>
+        <tr>
+            <td><label>Nombre</label></td>
+            <td><input type="text" th:field="*{nombre}" /></td>
+        </tr>
+        <tr>
+            <td><label>Contraseña</label></td>
+            <td><input type="text" th:field="*{contrasenya}" /></td>
+        </tr>
+        <tr>
+            <td><label>Usuario</label></td>
+            <td><input type="text" th:field="*{usuario}" /></td>
+        </tr>
+        <tr>
+            <td><label>Persona de contacto</label></td>
+            <td><input type="text" th:field="*{persona_contacto}" /></td>
+        </tr>
+        <tr>
+            <td><label>Teléfono</label></td>
+            <td><input type="number" th:field="*{telefono}" /></td>
+        </tr>
+        <tr>
+            <td><label>Dirección</label></td>
+            <td><input type="text" th:field="*{direccion}" /></td>
+        </tr>
+        
+        <tr>
+            <td colspan="2"><input type="submit" value="Actualizar empresa" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>

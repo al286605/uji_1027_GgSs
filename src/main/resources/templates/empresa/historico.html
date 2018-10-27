@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Sistema de Assignació de Projectes en Empreses - Acces</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/acces.css"
+	th:href="@{/css/acces.css}" />
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+		
+			<div class="row justify-content-between">
+				<div class="col-3">
+					<a href="/"
+						class="btn btn-outline-primary btn-block" role="button">Inici</a>
+				</div>
+				<div class="col-3">
+					<a href="/"
+						class="btn btn-outline-primary btn-block" role="button"th:href="@{../{id}(id=${oferta.id})}">Tornar a l'oferta</a>
+				</div>
+				<div class="col-3">
+					<a href="/eixida.html" class="btn btn-outline-primary btn-block"
+						role="button">Eixir de l'aplicació</a>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div >
+					<h2>Llistat de revisió de </h2>
+					<h3 th:text="${oferta.titulo}"></h3>
+					<table class="table table-responsive table-striped">
+						<thead>
+							<tr>
+								<th>Data de solicitut</th>
+								<th>Descripció</th>
+								<th>Missatje</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="practica: ${revisions}">
+								<td th:text="${#dates.format(practica.fecha,'dd MMM yyyy') }"></td>
+								<td th:text="${practica.descripcion}"></td>
+								<td th:text="${practica.mensaje}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

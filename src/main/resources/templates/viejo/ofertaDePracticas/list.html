@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Mostrar información de las ofertas</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"     
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+   <h1>Información de las ofertas</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>Fecha</th>
+         <th>Remuneración</th>
+         <th>Estado</th>
+         <th>Descripción</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="oferp: ${oferp}"> 
+         <td th:text="${oferp.fecha}"></td> 
+         <td th:text="${oferp.pago}"></td>
+         <td th:text="${oferp.estado}"></td>
+         <td th:text="${oferp.descripcion}"></td>
+         <td><a th:href="@{/ofertaDePracticas/update/{descripcion}(descripcion=${oferp.descripcion})}">Editar la descripcion</a> 
+       </tr>
+     </tbody>
+   </table>
+   <a href="add.html">Añadir estudiante</a> 
+    <a href="../index.html">INICIO</a>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Mostrar asignaciones</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"     
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+   <h1>Lista de Asignaciones</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>DNI</th>
+         <th>Id de la oferta</th>
+         <th>Nombre</th>
+         <th>Estado</th>
+         <th>Fecha</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="asigna: ${asignaciones}"> 
+         <td th:text="${asigna.dni}"></td> 
+         <td th:text="${asigna.id_oferta}"></td>
+         <td th:text="${asigna.nombre}"></td>
+         <td th:text="${asigna.estado}"></td>
+         <td th:text="${asigna.fecha}"></td>
+         <td><a th:href="@{/asigna/update/{nombre}(nombre=${asigna.id})}"> Edita la asignacion</a> 
+         </td>
+         <td><a th:href="@{/asigna/delete/{nombre}(nombre=${asigna.id})}">Borra la asignacion</a>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+   <a href="add.html">Añadir asignación</a> 
+</body>
+</html>

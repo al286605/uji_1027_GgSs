@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Sistema de Assignació de Projectes en Empreses - Acces</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/acces.css"
+	th:href="@{/css/acces.css}" />
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+	
+		<div class="row justify-content-between">
+			<div class="col-3">
+				<a class="btn btn-info btn-block" role="button"
+					href="crear_oferta.html">Crear oferta</a>
+			</div>
+			<div class="col-3">
+				<a href="/eixida.html" class="btn btn-outline-primary btn-block"
+					role="button">Eixir de l'aplicació</a>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="btn btn-block btn-danger" th:if="${borrada} != null">
+					<div th:text="'S\'ha esborrat ' + ${borrada}"></div>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="btn btn-success btn-block" th:if="${editada} != null">
+					<div th:text="'S\'ha editat correctament ' + ${editada}"></div>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-10">
+					<h2>Llistat de pràctiques</h2>
+					<table class="table table-responsive table-striped">
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Persona de contacte</th>
+								<th>Estat</th>
+								<th>Última modificació</th>
+								<th></th>
+							
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="practica: ${solicituts}">
+								<td th:text="${practica.titulo}"></td>
+								<td th:text="${practica.persona_de_contacto}"></td>
+								<td th:text="${practica.estado}"></td>
+								<td th:text="${#dates.format(practica.fecha_ultimo_cambio,'dd MMM yyyy') }"></td>
+								<td><a class="btn btn-info btn-block" role="button"
+									th:href="@{proyecte/{id}(id=${practica.id})}">Veure</a></td>
+								<td th:if="${practica.isEdit()} == true"><a
+									class="btn btn-success btn-block" role="button"
+									th:href="@{edicio/{id}(id=${practica.id})}">Editar</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

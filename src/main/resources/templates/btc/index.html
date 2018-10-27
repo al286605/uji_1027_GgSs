@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Sistema de Assignació de Projectes en Empreses - Acces</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/acces.css"
+	th:href="@{/css/acces.css}" />
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="col-md-1">
+					<div class="btn-group-vertical">
+						<a href="/dcc" type="button" class="btn btn-primary">Revisar
+							ofertes</a> 
+						<a href="/btc/ofertes.html" type="button"
+							class="btn btn-primary">Llistar ofertes</a>
+						<a href="/btc/preferencies_alumnes.html" type="button"
+							class="btn btn-primary">Preferencies dels alumnes</a> 
+						<a href="/btc/asignacions.html" type="button" class="btn btn-primary">Assignacions
+							fetes</a>
+					</div>
+			</div>
+		</div>
+		<br />
+		<p>
+			<a href="/eixida.html" class="btn btn-outline-primary btn-block"
+				role="button">Eixir de l'aplicació</a>
+		</p>
+	</div>
+
+</body>
+</html>

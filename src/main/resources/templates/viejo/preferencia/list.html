@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Mostrar información de las preferencias</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"     
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+   <h1>Información de las preferencias</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>DNI</th>
+         <th>Orden de preferencia</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="preferencia: ${preferencias}"> 
+         <td th:text="${preferencia.dni}"></td> 
+         <td th:text="${preferencia.orden}"></td>
+       </tr>
+     </tbody>
+   </table>
+   <a href="add.html">Añadir preferencia</a> 
+    <a href="../index.html">INICIO</a>
+</body>
+</html>

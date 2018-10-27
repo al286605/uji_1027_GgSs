@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Sistema de Assignació de Projectes en Empreses - Acces</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/acces.css"
+	th:href="@{/css/acces.css}" />
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="row justify-content-between">
+			<div class="col-3">
+			</div>
+			<div class="col-3">
+				<a href="/eixida.html" class="btn btn-outline-primary btn-block"
+					role="button">Eixir de l'aplicació</a>
+			</div>
+		</div>
+	
+		<div class="btn btn-block btn-danger" th:if="${oculta} != null">
+			<div th:text="'S\'ha ocultat per a l\'alumne ' + ${oculta}"></div>
+		</div>
+		<div class="btn btn-success btn-block" th:if="${visible} != null">
+			<div th:text="'S\'ha tornat visible per a l\'alumne ' + ${visible}"></div>
+		</div>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-1">
+					<div class="btn-group-vertical">
+						<a href="/dcc" type="button" class="btn btn-primary">Revisar
+							ofertes</a> 
+						<a href="/btc/ofertes.html" type="button"
+							class="btn btn-primary">Llistar ofertes</a>
+						<a href="/btc/preferencies_alumnes.html" type="button"
+							class="btn btn-primary">Preferencies dels alumnes</a> 
+						<a href="/btc/asignacions.html" type="button" class="btn btn-primary">Assignacions
+							fetes</a>
+					</div>
+				</div>
+				
+				<div class="row justify-content-center">
+					<div class="col-12">
+						<h2>Llistat de pràctiques</h2>
+						<div class="row ">
+							<div class="col-2"></div>
+							<div class="col">
+								<div class="float-right">
+									<table class="table table-responsive table-striped">
+										<thead>
+											<tr>
+												<th>Titol</th>
+												<th>Contacte de l'empresa</th>
+												<th>Empresa</th>
+												<th>Estat</th>
+												<th>Últim canvi</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="practica: ${solicituts}">
+												<td th:text="${practica.titulo}"></td>
+												<td th:text="${practica.persona_de_contacto}"></td>
+												<td th:text="${practica.empresa}"></td>
+												<td th:text="${practica.estado}"></td>
+												<td
+													th:text="${#dates.format(practica.fecha_ultimo_cambio, 'dd MMM yyyy')}"></td>
+												<td><a class="btn btn-info btn-sm btn-block"
+													role="button" th:href="@{oferta/{id}(id=${practica.id})}">Veure</a></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>SAPE - Ofertes per alumne</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/acces.css"
+	th:href="@{/css/acces.css}" />
+<link rel="stylesheet" type="text/css" href="/css/alumne.css"
+	th:href="@{/css/alumne.css}" />
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div layout:fragment="content">
+	
+		<div class="row justify-content-between">
+			<div class="col-3">
+				<a href="/alumne/ofertes.html"
+					class="btn btn-outline-primary btn-block" role="button">Torna</a>
+			</div>
+			<div class="col-3">
+				<a href="/"
+					class="btn btn-outline-primary btn-block" role="button">Inici</a>
+			</div>
+			<div class="col-3">
+				<a href="/eixida" class="btn btn-outline-primary btn-block"
+					role="button">Totes les ofertes</a>
+			</div>
+		</div>
+		<div class="container">
+			<div class="col-lg-12">
+				<div class="row justify-content-center">
+					<div class="col-10">
+
+						<form action="#" th:action="@{./{id}(id=${oferta.id})}"
+							th:object="${oferta}" method="post">
+							<h2>Projecte proposat</h2>
+							<div class="table-responsive">
+								<table class="table table-striped">
+									<tr>
+										<th>Titol:</th>
+										<td th:text="${oferta.titulo}"></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>Empresa:</th>
+										<td th:text="${oferta.empresa}"></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>Encarregat de l'empresa:</th>
+										<td th:text="${oferta.persona_de_contacto}"></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>Descripció:</th>
+										<td th:text="${oferta.descripcion}"></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>Pago:</th>
+										<td th:text="${oferta.pago}"></td>
+										<td></td>
+									</tr>
+									<tr>
+										<th>Preferéncia:</th>
+										<td>
+											<input  th:if="${prioririza}" type="number" min="1" max="5"
+											th:field="*{prioridad}" />
+											<div  th:if="!${prioririza}" th:text="*{prioridad}"></div>
+										</td>
+										<td><input th:if="${prioririza}"  class="btn btn-success btn-md btn-block"
+											type="submit" value="Aplicar preferencia" role="button" /></td>
+										<td th:if="${#fields.hasErrors('prioridad')}"
+											th:errors="*{prioridad}" class="error"></td>
+									</tr>
+
+								</table>
+								<div th:if="${prioririza}" class="btn-group btn-group-justified">
+									<p>
+										<a class="btn btn-danger btn-md btn-block" role="button"
+											th:href="@{/alumne/esborrar/{id}(id=${oferta.id})}">Esborrar
+											preferencia</a>
+									</p>
+								</div>
+
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

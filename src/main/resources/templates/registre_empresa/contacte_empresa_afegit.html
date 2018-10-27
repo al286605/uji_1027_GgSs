@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Sistema de Assignació de Projectes en Empreses - Acces</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/acces.css"
+	th:href="@{/css/acces.css}" />
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-10">
+					<h2>Dades de la persona de contacte</h2>
+					<table class="table table-responsive">
+						<tr>
+							<th>Nom y cognoms:</th>
+							<td th:text="${user.nombre}"></td>
+						</tr>
+						<tr>
+							<th>Correu electronic:</th>
+							<td th:text="${user.correo}"></td>
+						</tr>
+						<tr>
+							<th>Alias:</th>
+							<td th:text="${user.alias}"></td>
+						</tr>
+						<tr>
+							<th>Empresa:</th>
+							<td th:text="${empresa.nombre}"></td>
+						</tr>
+						<tr>
+							<th>Lloc de treball:</th>
+							<td th:text="${user.puesto}"></td>
+						</tr>
+					</table>
+					<div class="col-md-10">
+					<a href="../index.html" class="btn btn-success btn-block"
+				role="button">Accedir</a></div>
+				</div>
+			</div>
+		</div>
+		<br />
+		<p>
+			<a href="/eixida.html" class="btn btn-outline-primary btn-block"
+				role="button">Eixir de l'aplicació</a>
+		</p>
+	</div>
+</body>
+</html>

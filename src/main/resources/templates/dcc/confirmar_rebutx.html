@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Sistema de Assignació de Projectes en Empreses - Acces</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/acces.css"
+	th:href="@{/css/acces.css}" />
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="row justify-content-between">
+			<div class="col-3">
+				<a href="/" class="btn btn-outline-primary btn-block"
+					role="button">Inici</a>
+			</div>
+			<div class="col-3">
+				<a th:href="@{/dcc/proyecte/{id}(id=${oferta.id})}" class="btn btn-outline-primary btn-block"
+					role="button">Tornar</a>
+			</div>
+			<div class="col-3">
+				<a href="/eixida.html" class="btn btn-outline-primary btn-block"
+					role="button">Eixir de l'aplicació</a>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-1">
+					<div th:if="${rol} == 'dcc'" class="btn-group-vertical">
+						<a href="/dcc" type="button" class="btn btn-primary">Revisar
+							ofertes</a> 
+					</div>
+					<div th:if="${rol} == 'btc'" class="btn-group-vertical">
+						<a href="/dcc" type="button" class="btn btn-primary">Revisar
+							ofertes</a> 
+						<a href="/btc/ofertes.html" type="button"
+							class="btn btn-primary">Llistar ofertes</a>
+						<a href="/btc/preferencies_alumnes.html" type="button"
+							class="btn btn-primary">Preferencies dels alumnes</a> 
+						<a href="/btc/asignacions.html" type="button" class="btn btn-primary">Assignacions
+							fetes</a>
+					</div>
+				</div>
+				<div class="col-10">
+					<div class="row justify-content-center">
+						<div class="col-6">
+							<h2>Confirmar rebuig de l'empresa</h2>
+							<table class="table table-responsive table-striped">
+								<tr>
+									<th>Titol:</th>
+									<td th:text="${oferta.titulo}"></td>
+								</tr>
+								<tr>
+									<th>Descripció:</th>
+									<td th:text="${oferta.descripcion}"></td>
+								</tr>
+								<tr>
+									<th>Encarregat de l'empresa:</th>
+									<td th:text="${oferta.persona_de_contacto}"></td>
+								</tr>
+								<tr>
+									<th>Estat:</th>
+									<td th:text="${oferta.estado}"></td>
+								</tr>
+								<tr>
+									<th>Pago:</th>
+									<td th:text="${oferta.pago}"></td>
+								</tr>
+								<tr>
+									<th>Data de revisió:</th>
+									<td th:text="${oferta.fecha_revision}"></td>
+								</tr>
+								<tr>
+									<th>Crítica de revisió:</th>
+									<td th:text="${oferta.texto_revision}"></td>
+								</tr>
+								<tr>
+									<td colspan="2"><a class="btn btn-danger btn-block"
+										role="button" th:href="confirmar_rebutx.html">Confirmar
+											rebuig</a></td>
+								</tr>
+							</table>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Crear nueva oferta</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Nueva oferta</h2>
+    <form action="#" th:action="@{/oferta/add}" 
+                     th:object="${oferta}" method="post"> 
+      <table>
+        <tr>
+            <td><label>Id de la oferta</label></td>
+            <td><input type="text" th:field="*{id}" /></td> 
+        </tr>
+        <tr>
+            <td><label>Titulo de la oferta</label></td>
+            <td><input type="text" th:field="*{titulo}" /></td>
+        </tr>
+        <tr>
+            <td><label>Itinerario</label></td>
+            <td><input type="text" th:field="*{itinerario}" /></td>
+        </tr>
+        <tr>
+            <td><label>Estado</label></td>
+            <td><input type="text" th:field="*{estado}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Añadir oferta" /></td>
+        </tr>
+      </table>
+    </form>
+     <a href="../index.html">INICIO</a>
+</body>
+</html>

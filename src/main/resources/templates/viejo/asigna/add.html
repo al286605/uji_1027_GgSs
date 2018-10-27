@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Crear nueva asignación</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Nueva asignación</h2>
+    <form action="#" th:action="@{/asigna/add}" 
+                     th:object="${asigna}" method="post"> 
+      <table>
+        <tr>
+            <td><label>Identificador de la oferta</label></td>
+            <td><input type="number" th:field="*{id_oferta}" /></td> 
+        </tr>
+        <tr>
+            <td><label>DNI del estudiante</label></td>
+            <td><input type="text" th:field="*{dni}" /></td>
+        </tr>
+        <tr>
+            <td><label>Nombre del estudiante</label></td>
+            <td><input type="text" th:field="*{nombre}" /></td>
+        </tr>
+        <tr>
+            <td><label>id ofertas practricas</label></td>
+            <td><input type="number" th:field="*{id_oferta_practicas}" /></td>
+        </tr>
+        <tr>
+            <td><label>Estado de la asignación </label></td>
+            <td><input type="text" th:field="*{estado}" /></td>
+        </tr>
+        <tr>
+            <td><label>Fecha de asignacion</label></td>
+            <td><input type="text" th:field="*{fecha}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Añadir asignacion" /></td>
+        </tr>
+      </table>
+    </form>
+    <a href="../index.html">INICIO</a>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Sistema de Assignació de Projectes en Empreses - Registre
+	d'empresa</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/registre_empresa.css"
+	th:href="@{/css/registre_empresa.css}" />
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="col-md-12">
+				<div class="row justify-content-left">
+					<div class="col-6">
+
+						<h2>Registrar-se com empresa</h2>
+						<form action="#" th:action="@{index.html}" th:object="${empresa}"
+							method="post">
+							<div class="form-group">
+								<label for="cif">CIF:</label> <input type="text"
+									class="form-control" id="cif" name="cif" placeholder="CIF"
+									th:field="*{cif}" /> <label for="cif">Nom de la
+									empresa:</label> <input type="text" class="form-control" id="nom"
+									name="dir" placeholder="Nom" th:field="*{nombre}" /> <label
+									for="cif">Direcció:</label> <input type="text"
+									class="form-control" id="dir" name="dir" placeholder="Direcció"
+									th:field="*{direccion}" /> <label for="cif">Telèfon de
+									contacte:</label> <input type="text" class="form-control" id="tlf"
+									name="tlf" placeholder="Telèfon" th:field="*{telefono}" />
+							</div>
+							<input class="btn btn-isuccess btn-md btn-block" role="button"
+								value="Afegir empresa" type="submit" />
+						</form>
+					</div>
+
+
+
+					<div class="col-6">
+						<h2>Registrar persona de contacte</h2>
+						<form action="#" th:action="@{empresa_trobada.html}"
+							th:object="${empresa}" method="get">
+							<div class="form-group">
+								<label for="cif">CIF:</label> <input type="text"
+									class="form-control" id="cif" name="cif" placeholder="CIF"
+									th:field="*{cif}" />
+								<!-- 								<li><input type="text" th:field="*{cif}" /></li> -->
+
+							</div>
+							<input class="btn btn-isuccess btn-md btn-block" role="button"
+								type="submit" value="Registrar per CIF" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-11">
+			<br/>
+				<p><a href="/eixida.html" class="btn btn-outline-primary btn-block"
+					role="button">Eixir de l'aplicació</a></p>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
+<!-- <h2>Trobar empresa.</h2>
+	<form action="#" th:action="@{trobar_empresa.html}"
+					th:object="${empresa}" method="get">
+		<ul>
+			<li>CIF:</li>
+			<li><input type="text" th:field="*{cif}" /></li>
+			<li><input type="submit" value="Trobar empresa per CIF." /></li>
+		</ul>
+		<ul>
+			<li>Nom:</li>
+			<li><input type="text" th:field="*{nombre}" /></li>
+			<li><input type="submit" value="Trobar empresa per nom." /></li>
+		</ul>
+	</form> -->

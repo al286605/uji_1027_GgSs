@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Sistema de Assignació de Projectes en Empreses - Acces</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/acces.css"
+	th:href="@{/css/acces.css}" />
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-10">
+					<h2>Incloure persona de contacte</h2>
+					<h3 th:text="${empresa.nombre}">Nom:</h3>
+					<form action="#" th:action="@{contacte_empresa}"
+						th:object="${user}" method="post">
+						<table class="table table-responsive">
+							<tr>
+								<th>Nom y cognoms:</th>
+								<td><input class="form-control" type="text"
+									th:field="*{nombre}" /></td>
+							</tr>
+							<tr>
+								<th>Correu electronic:</th>
+								<td><input class="form-control" type="text"
+									th:field="*{correo}" /></td>
+							</tr>
+							<tr>
+								<th>Alias:</th>
+								<td><input class="form-control" type="text"
+									th:field="*{alias}" /></td>
+							</tr>
+							<tr>
+								<th>Lloc de treball:</th>
+								<td><input class="form-control" type="text"
+									th:field="*{puesto}" /></td>
+							</tr>
+							<tr>
+								<th>Contrasenya:</th>
+								<td><input class="form-control" type="password"
+									th:field="*{contrasenya}" /></td>
+							</tr>
+							<tr>
+								<td colspan="2"><input class="btn btn-success btn-block"
+				role="button" type="submit" value="Registrar" /></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+		<br />
+		<p>
+			<a href="/eixida.html" class="btn btn-outline-primary btn-block"
+				role="button">Eixir de l'aplicació</a>
+		</p>
+	</div>
+</body>
+</html>

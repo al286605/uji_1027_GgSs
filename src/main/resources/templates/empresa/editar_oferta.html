@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Sistema de Assignació de Projectes en Empreses - Acces</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/acces.css"
+	th:href="@{/css/acces.css}" />
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="row justify-content-between">
+			<div class="col-3">
+				<a href="/"
+					class="btn btn-outline-primary btn-block" role="button">Inici</a>
+			</div>
+			<div class="col-3">
+				<a href="/eixida.html" class="btn btn-outline-primary btn-block"
+					role="button">Eixir de l'aplicació</a>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div>
+					<h2>Editar l'oferta</h2>
+					<form action="#" th:action="@{./{id}(id=${oferta.id})}"
+						th:object="${oferta}" method="post">
+						<table class="table table-responsive">
+							<tr>
+								<th>Títol de l'oferta:</th>
+								<td><input class="form-control"
+									placeholder="Nom de l'oferta" type="text" th:field="*{titulo}" /></td>
+								<td th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></td>
+							</tr>
+							<div th:if="${oferta.fecha_revision} != null">
+							<tr>
+								<th>Data de revisió:</th>
+								<td th:text="${#dates.format(oferta.fecha_revision,'dd MMM yyyy') }"></td>
+							</tr>
+							<tr>
+								<th>Crítica de revisió:</th>
+								<td th:text="${oferta.texto_revision}"></td>
+							</tr>
+							</div>
+							<tr>
+								<th>Descripció:</th>
+								<td><textarea class="form-control z-depth-1" rows="3"
+										placeholder="Introdueix una descripció"
+										th:field="*{descripcion}"></textarea></td>
+								<td th:if="${#fields.hasErrors('descripcion')}"
+									th:errors="*{descripcion}"></td>
+							</tr>
+							<tr>
+								<th>Pago:</th>
+								<td><input type="number" th:field="*{pago}" /></td>
+								<td th:if="${#fields.hasErrors('pago')}" th:errors="*{pago}"></td>
+							</tr>
+							<tr>
+								<th>Itineraris:</th>
+								<td><select th:field="*{itinerario}" size="4"
+									multiple="multiple">
+										<option th:each="iti: ${itinerarios}" th:value="${iti.tipo}"
+											th:utext="${iti.tipo}" />
+								</select></td>
+								<td th:if="${#fields.hasErrors('itinerario')}"
+									th:errors="*{itinerario}"></td>
+							</tr>
+							<tr>
+								<td colspan="2"><input class="btn btn-success btn-block"
+									role="button" type="submit" value="Editar oferta" /></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

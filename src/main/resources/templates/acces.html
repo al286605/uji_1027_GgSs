@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/base}">
+<head>
+<title>Sistema de Assignació de Projectes en Empreses - Acces</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/acces.css"
+	th:href="@{/css/acces.css}" />
+<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Aclonica|Bungee+Inline"
+	rel="stylesheet" />
+
+
+</head>
+<body>
+
+
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="col-md-12">
+				<div class="row justify-content-center">
+					<div class="col-4">
+						<form action="#" th:action="@{acces.html}" th:object="${usuari}"
+							method="post">
+							<div class="input-group">
+								<span class="input-group-addon"><ion-icon name="person"></ion-icon></span>
+
+								<input id="email" type="text" class="form-control" name="email" placeholder="Email" th:field="*{correo}" />
+
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><ion-icon name="lock"></ion-icon></span>
+
+								<input id="password" type="password" class="form-control" name="contrasenya"  th:field="*{contrasenya}" placeholder="Contrasenya" />
+
+							</div>
+							<br />
+							<table class="table-responsive">
+								<tr>
+									<td th:if="${#fields.hasErrors('alias')}" th:errors="*{alias}"
+										class="error" />
+								</tr>
+							</table>
+							<p>
+								<input class="btn btn-default btn-md btn-block" type="submit"
+									value="Accedir" role="button" />
+							</p>
+							<p>Clic açí per a registrar-se com empresa:</p>
+							<a href="/registre_empresa/"
+								class="btn btn-info btn-md btn-block" role="button">Registrar-se
+								com empresa</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

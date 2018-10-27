@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Actualizar asignación de ofertas</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"       
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+    <h2>Actualizar asignación de ofertas</h2>
+    <form action="#" th:action="@{/asigna/update/{nom}(nom=${asigna.id})}" 
+                     th:object="${asigna}" method="post"> 
+    <table>
+        <tr>
+            <td><label>Identificador de la oferta</label></td>
+            <td><input type="text" th:field="*{id}" /></td> 
+        </tr>
+        <tr>
+            <td><label>DNI del estudiante</label></td>
+            <td><input type="text" th:field="*{dni}" /></td>
+        </tr>
+        <tr>
+            <td><label>Nombre</label></td>
+            <td><input type="text" th:field="*{nombre}" /></td>
+        </tr>
+        <tr>
+            <td><label>Estado de la asignación </label></td>
+            <td><input type="text" th:field="*{estado}" /></td>
+        </tr>
+        <tr>
+            <td><label>Fecha de asignacion</label></td>
+            <td><input type="text" th:field="*{fecha}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Actualizar estudiante" /></td>
+        </tr>
+      </table>
+    </form>
+</body>
+</html>

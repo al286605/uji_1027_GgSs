@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Gestionar Estudiantes</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"     
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+   <h1>Lista de Estudiantes</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>DNI</th>
+         <th>Nombre</th>
+         <th>Apellido</th>
+         <th>E-mail</th>
+         <th>Telefono</th>
+         <th>Año</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="estudiante: ${estudiantes}"> 
+         <td th:text="${estudiante.dni}"></td> 
+         <td th:text="${estudiante.nombre}"></td>
+         <td th:text="${estudiante.apellido}"></td>
+         <td th:text="${estudiante.tlf}"></td>
+         <td th:text="${estudiante.email}"></td>
+         <td th:text="${estudiante.anyo}"></td>
+         <td><a th:href="@{/estudiante/update/{nombre}(nombre=${estudiante.nombre})}">Edita</a> 
+         </td>
+         <td><a th:href="@{/estudiante/delete/{nombre}(nombre=${estudiante.nombre})}">Borra</a>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+   <a href="add.html">Añadir estudiante</a> 
+   
+    <a href="../index.html">INICIO</a>
+</body>
+</html>

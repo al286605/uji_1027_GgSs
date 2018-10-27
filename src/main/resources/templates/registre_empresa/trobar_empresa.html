@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+   <title>Trobar empresa</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet"     
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+   <h1>Llistat de Empreses trobades</h1>
+   <table>
+     <thead>
+       <tr>
+         <th>CIF</th>
+         <th>Nom</th>
+         <th>Telèfon</th>
+         <th>Direcció</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr th:each="empresa: ${empresas}"> 
+         <td th:text="${empresa.cif}"></td> 
+         <td th:text="${empresa.nombre}"></td>
+         <td th:text="${empresa.telefono}"></td>
+         <td th:text="${empresa.direccion}"></td>
+         <td><a th:href="@{contacte_empresa/{cif}(cif=${empresa.cif})}">Afegix persona de contacte</a></td>
+       </tr>
+     </tbody>
+   </table>
+</body>
+</html>

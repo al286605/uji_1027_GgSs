@@ -1,0 +1,29 @@
+@charset "ISO-8859-1";
+
+                                    
+                                    /* Estil aplicat al cos de la pàgina */
+.jumbotron{
+	font-family: Arial; 
+	color: white;
+	background-color: blue;
+	text-align: center;
+}
+.container{
+	text-align:center;
+}
+
+
+tr{
+	text-align: left;
+}
+tr#th{
+	width: 100%;
+	
+}
+
+/* Classe CSS error */
+.error {
+     color: red;
+     font-size:80%
+}
+                                    
