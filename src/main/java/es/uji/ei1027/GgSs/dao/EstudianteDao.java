@@ -70,9 +70,8 @@ public class EstudianteDao {
 			
 		public void updateEstudiante(Estudiante estudiante) {
 			this.jdbcTemplate.update(
-					"update Estudiante set dni=?, nombre=?, apellido=?, telefono=?, anyo_academico=?, itinerario=?, semestre_elegido=? where alias = ?", 
-					estudiante.getDni(), estudiante.getNombre(), estudiante.getApellido(), 
-					estudiante.getTelefono(), estudiante.getAnyo_academico(), estudiante.getItinerario(), estudiante.getSemestre_inicio_instancia(), estudiante.getAlias());
+					"update Estudiante set semestre_elegido=? where alias = ?", 
+					estudiante.getSemestre_inicio_instancia(), estudiante.getAlias());
 		}
 			
 		public void deleteEstudiante(String alias) {

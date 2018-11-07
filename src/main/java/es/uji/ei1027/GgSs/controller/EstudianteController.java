@@ -283,6 +283,11 @@ public class EstudianteController {
     	Usuario user = (Usuario)session.getAttribute("usuario");
     	if(user == null || (!user.getRol().equals("alumno") && !user.getRol().equals("groot")))
     		return "/no_acces";
+    	Estudiante est = estudianteDao.getEstudiante(user.getAlias());
+    	if( 0 == est.getSemestre_inicio_instancia()) {
+    		model.addAttribute("semestre",est);
+    		return raiz + "/seleccio_semestre";
+    	}
     	
     	Asigna asig = null;
     	try {
@@ -346,4 +351,34 @@ public class EstudianteController {
         session.removeAttribute("asignacion");
         return "redirect:/";
     }
+    
+    @RequestMapping(value="/eleccio_semestre", method = RequestMethod.POST) 
+    public String eleccioSemestre(@ModelAttribute("semestre") Estudiante estud, Model model, HttpSession session) {
+    	Usuario user = (Usuario)session.getAttribute("usuario");
+    	if(user == null || (!user.getRol().equals("alumno") && !user.getRol().equals("groot")))
+    		return "/no_acces";
+    	
+    	Estudiante est = estudianteDao.getEstudiante(user.getAlias());
+    	est.setSemestre_inicio_instancia(estud.getSemestre_inicio_instancia());
+
+        model.addAttribute("semestre",est.getSemestre_inicio_instancia());
+        session.setAttribute("estudiante",est);
+        return raiz + "/confirmacio_semestre";
+    }
+    
+    @RequestMapping("/confirmacio_semestre") 
+    public String confirmacioSemestre(Model model, HttpSession session) {
+    	Usuario user = (Usuario)session.getAttribute("usuario");
+    	if(user == null || (!user.getRol().equals("alumno") && !user.getRol().equals("groot")))
+    		return "/no_acces";
+    	
+    	Estudiante est = (Estudiante) session.getAttribute("estudiante");
+    	if(est == null)
+    		return "/error";
+    	estudianteDao.updateEstudiante(est);
+        session.removeAttribute("estudiante");
+
+    	return "redirect:/";
+    }
+    
 }
