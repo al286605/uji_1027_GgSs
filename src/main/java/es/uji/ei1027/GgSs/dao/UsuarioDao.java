@@ -84,13 +84,21 @@ public class UsuarioDao {
 	public void addRootUser()
 	{
 		Usuario user = new Usuario();
+		addUsuario(addTutor("lombardo"));
+		addUsuario(addTutor("turiel"));
+		addUsuario(addTutor("diaz"));
+		
+		addUsuario(addEstudiante("al203485"));
+		addUsuario(addEstudiante("al203486"));
+		addUsuario(addEstudiante("al203487"));
+		/*
 		user = new Usuario();
 		user.setAlias("garcia");
 		user.setRol("dcc");
 		user.setContrasenya("garcia");
 		user.setCorreo("garcia@uji.es");
 		addUsuario(user);
-		/*user.setAlias("groot");
+		user.setAlias("groot");
 		user.setRol("groot");
 		user.setContrasenya("groot");
 		user.setCorreo("groot");
@@ -101,6 +109,24 @@ public class UsuarioDao {
 		user.setContrasenya("root");
 		user.setCorreo("root");
 		addUsuario(user);*/
+	}
+	
+	private Usuario addEstudiante(String nombre) {
+		Usuario user = new Usuario();
+		user.setAlias(nombre);
+		user.setRol("alumno");
+		user.setContrasenya(nombre);
+		user.setCorreo(nombre+"@uji.es");
+		return user;
+	}
+	
+	private Usuario addTutor(String nombre) {
+		Usuario user = new Usuario();
+		user.setAlias(nombre);
+		user.setRol("tutor");
+		user.setContrasenya(nombre);
+		user.setCorreo(nombre+"@uji.es");
+		return user;
 	}
 		
 	public void updateUsuario(Usuario usuario) {
