@@ -53,7 +53,7 @@ public class Oferta_de_proyecto {
 	}
 	
 	public boolean isEdit() { return estado.equals("Pendent de revisió") || estado.equalsIgnoreCase("Rebutjada");}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	public void setId(int id) {

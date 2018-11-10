@@ -63,15 +63,15 @@
 										<th>Estat:</th>
 										<td th:text="${asignacio.estado}"></td>
 									</tr>
-									<tr th:if="${asignacio.estado} == 'rechazada'">
+									<tr th:if="${asignacio.estado} == 'Rebutjada'">
 										<th>Data de solicitut de canvi:</th>
 										<td th:text="${#dates.format(asignacio.fecha_peticion_cambio, 'dd MMM yyyy')}"></td>
 									</tr>
-									<tr th:if="${asignacio.estado} == 'rechazada'">
+									<tr th:if="${asignacio.estado} == 'Rebutjada'">
 										<th>Comentari de solicitut de canvi:</th>
 										<td th:text="${asignacio.comentario_peticion_cambio}"></td>
 									</tr>
-									<tr th:if="${asignacio.estado} == 'pendiente'">
+									<tr th:if="${asignacio.estado} == 'Pendent'">
 										<th>Comentari de solicitut de canvi:</th>
 										<td><textarea class="form-control z-depth-1" rows="3"
 												th:field="*{comentario_peticion_cambio}"></textarea></td>

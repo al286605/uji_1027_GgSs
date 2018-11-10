@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -29,14 +30,22 @@ private JdbcTemplate jdbcTemplate;
 	        Asigna asigna = new Asigna();
 	        asigna.setProyecto(rs.getInt("id_oferta"));
 	        asigna.setAlumno(rs.getString("alumno"));
+	        try {
+		        asigna.setId_alumno(rs.getString("id_alumno"));
+	        }catch(PSQLException e) {}
 	        
 	        asigna.setProfesor(rs.getString("tutor"));
 	        asigna.setEstado(rs.getString("estado"));
+	        try {
 	        asigna.setFecha_propuesta(rs.getDate("fecha_de_la_asignacion"));
 	        asigna.setFecha_aceptacion_o_rechazo(rs.getDate("fecha_de_aceptacion"));
 	        asigna.setFecha_traspaso_iglu(rs.getDate("fecha_de_traspaso_iglu"));
+	        }catch(PSQLException e) {}
 	        asigna.setComentario_peticion_cambio(rs.getString("comentario_peticion_de_cambio"));
+	        try {
 	        asigna.setFecha_peticion_cambio(rs.getDate("fecha_peticion_de_cambio"));
+
+	        }catch(PSQLException e) {}
 	        
 	        return asigna;
 	    }
@@ -47,9 +56,9 @@ private JdbcTemplate jdbcTemplate;
 		     	"select * from asignacion;", new AsignaMapper());
 	}
 	public List<Asigna> getAsignacionesRealizadas() {
-		String sql = "select AL.nombre as alumno, O.titulo as comentario_peticion_cambio, T.nombre as profesor, A.estado "
-     	+ " from Ofertas_de_proyectos O, estudiante AL, tutor T, asignacion A "
-     	+ " WHERE A.id_oferta=O.id AND A.alumno=AL.alias AND A.profesor=T.alias"
+		String sql = "select AL.alias as id_alumno, A.id_oferta, AL.nombre as alumno, O.titulo as comentario_peticion_de_cambio, T.nombre as tutor, A.estado "
+     	+ " from Ofertas_de_practicas O, estudiante AL, tutor T, asignacion A "
+     	+ " WHERE A.id_oferta=O.id AND A.alumno=AL.alias AND A.tutor=T.alias"
      	+ "  ORDER BY A.fecha_peticion_de_cambio";
 		return this.jdbcTemplate.query(
 				sql, new AsignaMapper());
@@ -82,9 +91,16 @@ private JdbcTemplate jdbcTemplate;
 		return list.get(0);
 	}
 		
-	public Asigna getAsigna(String nombre,int id) {
+	public Asigna getAsigna(String nombre,Integer id) {
+		String sql = "select A.id_oferta, A.alumno, T.nombre as tutor, A.estado, "
+				+ " A.fecha_de_la_asignacion, A.fecha_de_aceptacion, A.fecha_de_traspaso_iglu,"
+				+ " A.comentario_peticion_de_cambio, A.fecha_peticion_de_cambio"
+		     	+ " from Ofertas_de_practicas O, tutor T, asignacion A "
+		     	+ " WHERE A.id_oferta=O.id AND A.tutor=T.alias"
+		     	+ " AND A.alumno=? AND A.id_oferta=?"
+		     	+ "  ORDER BY A.fecha_peticion_de_cambio";
 		return this.jdbcTemplate.queryForObject(
-				"select * from asignacion where alumno=? AND id_oferta=?",  
+				sql,  
 				new Object[] {nombre,id}, new AsignaMapper());
 	}
 	
@@ -110,21 +126,21 @@ private JdbcTemplate jdbcTemplate;
 				+ "where id_oferta=? and alumno=?", 
 				proyecto, alumno);
 	}
-	public void checkAsigna(int proyecto, String alumno)
+	public void checkAsigna(Integer proyecto, String alumno)
 	{
 		this.jdbcTemplate.update(
 				"update Asignacion set estado='Confirmada', fecha_de_aceptacion=now() "
 				+ "where id_oferta=? and alumno=?", 
 				proyecto, alumno);
 	}
-	public void solicitarCambio(int proyecto, String alumno)
+	public void solicitarCambio(Integer proyecto, String alumno)
 	{
 		this.jdbcTemplate.update(
 				"update Asignacion set estado='peticion_cambio' "
 				+ "where id_oferta=? and alumno=?", 
 				proyecto, alumno);
 	}
-	public void rejectAsigna(String comentario, int proyecto, String alumno)
+	public void rejectAsigna(String comentario, Integer proyecto, String alumno)
 	{
 		this.jdbcTemplate.update(
 				"update Asignacion set estado='Rebutjada', fecha_peticion_de_cambio=now(), comentario_peticion_de_cambio=? "
@@ -132,7 +148,7 @@ private JdbcTemplate jdbcTemplate;
 				comentario,
 				proyecto, alumno);
 	}
-	public void moveIGLUAsigna(int proyecto, String alumno)
+	public void moveIGLUAsigna(Integer proyecto, String alumno)
 	{
 		this.jdbcTemplate.update(
 				"update Asignacion set estado='traspasada', fecha_de_traspaso_iglu=now() "
@@ -157,7 +173,7 @@ public void updateAsigna(Asigna asigna) {
 			asigna.getProyecto(), asigna.getAlumno());
 }
 
-public void updateAsignaPropuesta(int proyecto, String alumno) {
+public void updateAsignaPropuesta(Integer proyecto, String alumno) {
 this.jdbcTemplate.update(
 		"update Asignacion set "
 				+ "estado='Pendent',"

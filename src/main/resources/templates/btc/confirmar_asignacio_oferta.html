@@ -15,6 +15,20 @@
 </head>
 <body>
 	<div layout:fragment="content">
+		<div class="row justify-content-between">
+			<div class="col-3">
+				<a href="/btc/preferencies_alumnes.html" class="btn btn-outline-primary btn-block"
+					role="button">Tornar</a>
+			</div>
+			<div class="col-4">
+				<a th:href="@{/btc/preferencies_alumnes/{id}(id=${alumno.alias})}" class="btn btn-outline-primary btn-block"
+					role="button">Tornar a les preferencies del alumne</a>
+			</div>
+			<div class="col-3">
+				<a href="/eixida.html" class="btn btn-outline-primary btn-block"
+					role="button">Eixir de l'aplicació</a>
+			</div>
+		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-1">
@@ -36,6 +50,10 @@
 							th:text="'Projecte ' + ${oferta.titulo} + ' per al alumne: '+ ${alumno.nombre} + ' ' + ${alumno.apellido}"></h3>
 						<form action="#" th:action="@{./{id}(id=${oferta.id})}"
 							th:object="${asignacion}" method="post">
+							
+						<h3 colspan="2"><a class="btn btn-success btn-md"
+							role="button" href="/btc/confirmar_asignacio_oferta.html ">Confirmar
+								asignació de práctiques</a></h3>
 							<h4>Informació de l'alumne</h4>
 							<table class="table table-responsive table-striped">
 								<tr>
@@ -103,33 +121,12 @@
 									<th>Despatx:</th>
 									<td th:text="${tut.despacho}"></td>
 								</tr>
-								<tr>
-									<td colspan="2"><a class="btn btn-success btn-md"
-										role="button" href="/btc/confirmar_asignacio_oferta.html ">Confirmar
-											asignació de práctiques</a></td>
-								</tr>
 							</table>
 						</form>
 					</div>
 				</div>
 
 			</div>
-			<div class="row justify-content-between">
-				<div class="col-3">
-					<a href="/btc/preferencies_alumnes.html"
-						class="btn btn-outline-primary btn-block" role="button">Torna</a>
-				</div>
-				<div class="col-3">
-					<a href="/btc/ofertes.html"
-						class="btn btn-outline-primary btn-block" role="button">Totes
-						les ofertes</a>
-				</div>
-			</div>
-			<br />
-			<p>
-				<a href="/eixida.html" class="btn btn-outline-primary btn-block"
-					role="button">Eixir de l'aplicació</a>
-			</p>
 		</div>
 	</div>
 
