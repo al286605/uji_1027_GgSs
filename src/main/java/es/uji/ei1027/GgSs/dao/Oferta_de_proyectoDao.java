@@ -124,7 +124,7 @@ public class Oferta_de_proyectoDao {
 		return getOfertas_de_proyectoEstado(estado);
 	}
 		
-	public Oferta_de_proyecto getOferta_de_proyecto(int id) {
+	public Oferta_de_proyecto getOferta_de_proyecto(Integer id) {
 		Oferta_de_proyecto oferta = this.jdbcTemplate.queryForObject(
 				"select "+datos_sql+" from Ofertas_de_practicas O,persona_de_contacto P, empresa E "
 				+ " WHERE O.persona_de_contacto = P.alias AND P.empresa = E.cif "+
