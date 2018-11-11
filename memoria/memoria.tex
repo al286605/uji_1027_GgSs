@@ -58,7 +58,7 @@ María de los Ángeles \textsc{López Malo}
 % Bottom of the page
 % -----
 % Sustituir los signos "\_" por lo que corresponda. 
-{\large Fecha de lectura: 16 de julio de 2018\\
+{\large Fecha de lectura: 14 de noviembre de 2018\\
 Curso académico 2018/2019}
 
 \end{center}
@@ -76,6 +76,8 @@ Curso académico 2018/2019}
 \section*{Resumen}
 
 En el grado de Ingeniería Informática se necesita un sistema que pueda dar soporte a la gestión de las estancias en prácticas, en estas estancias se incluye también el TFG y la defensa el mismo ante el tribunal, aunque en este caso el alcance del proyecto sólo llegará a la gestionar la asignación de los estudiantes a una estancia en prácticas. 
+
+En este documento se encuentra la descripción del proceso de la elaboración del proyecto incluyendo la definición de requisitos, el análisis del diseño de la aplicación, análisis del diseño de la interfaz y la planificación llevada a cabo.
 
 \thispagestyle{empty} % página sin numerar
 
@@ -101,7 +103,7 @@ En el grado de Ingeniería Informática se necesita un sistema que pueda dar sop
 
 \section{Motivación del proyecto}
 
-El objetivo principal, y estratégico, de este producto es proporcionar apoyo a la gestión propia de la asignatura EI1054: Estancias y Trabajo Final de Grado (TFG) de Ingeniería en Informática.
+El objetivo principal, y estratégico, de este producto es proporcionar apoyo a la gestión propia de la asignatura EI1054: Estancias y Trabajo Final de Grado (TFG) de Ingeniería en Informática \cite{caspractic}.
 
 A nivel táctico y operativo el producto permite agilizar y mejorar la gestión propia de la asignatura EI1054 (Estancias en prácticas y trabajo final de grado). Proporciona un entorno accesible a las empresas y los supervisores para que la gestión de los TFG se pueda llevar a cabo de manera más colaborativa. Facilita el trabajo de revisión y de aceptación de propuestas de TFG. Mejora la publicación y consulta de las ofertas para la realización de los TFG del grado. Finalmente, proporciona transparencia en el proceso de las asignaciones de estancias y TFG.
 
@@ -126,7 +128,7 @@ SAPE incluye la siguiente funcionalidad:
 
 \end{itemize}
 
-Para coordinar el trabajo realizado por todos los miembros del equipo, lo que hemos hecho son quedadas grupales en las que hemos realizado diferentes partes del proyecto de forma conjunta a mes de distribuir algunas tareas individuales como puede ser la creación de la base de datos a partir del diseño físico o la realización de partes del código como el validadores. Además de la utilización del drive para poder poner en común los cambios realizados de forma individual en casa.
+Todas estas funcionalidades no se encuentran el la aplicación, dado que alguna de ellas son complementarias y opcionales dependiendo del número de miembros del grupo escogiendo cuales implementar.
 
 %\section{Estructura de la memoria}
 
@@ -136,46 +138,57 @@ Para coordinar el trabajo realizado por todos los miembros del equipo, lo que he
 
 \section{Modelo UML proporcionado en clase}
 
-Para un correcto desarrollo de la base de datos para el proyecto es necesario que tengamos un modelo UML en el que apoyarnos para un correcto desarrollo. Por esta razón hicimos uso del modelo UML que nos dieron a clase el cual es el que se muestra en la imagen siguiente.
+Para un correcto desarrollo de la base de datos del proyecto es necesario un modelo UML donde apoyarse. Se parte del modelo del enunciado que se muestra en la Figura \ref{uml_enunciado}.
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=\textwidth]{img/uml_enunciado.jpg}
-\caption{\label{uml_propio} UML creado propuesto en el enunciado.}
+\caption{\label{uml_enunciado} UML propuesto en el enunciado\cite{caspractic}.}
 \end{center}
 \end{figure}
 
-\section{Modelo UML definido para nuestro proyecto}
-Una vez tenemos el modelo UML de nuestro proyecto, el siguiente paso fue la
-realización de un diseño lógico en el que se ven todas las relaciones entre las diferentes clases que necesitamos para la implementación además de los diferentes elementos que contienen cada una. Este diseño lógico de por ver en la siguiente imagen.
-
-\begin{figure}[h]
+\begin{figure}[]
 \begin{center}
 \includegraphics[width=\textwidth]{img/uml_propio}
 \caption{\label{uml_propio} UML creado a partir del expuesto en el enunciado.}
 \end{center}
 \end{figure}
 
-Una vez tenemos el modelo UML de nuestro proyecto, el siguiente paso fue la
-realización de un diseño lógico en el que se ven todas las relaciones entre las diferentes clases que necesitamos para la implementación además de los diferentes elementos que contienen cada una. Este diseño lógico de por ver en la siguiente imagen.
+\section{Modelo UML definido para nuestro proyecto}
+
+Con el modelo ofrecido en el apartado anterior, se ha decidido generar el nuestro propio modelo UML de nuestro proyecto. Como se puede visualizar en la Figura \ref{uml_propio} nuestro modelo UML tiene cierta semejanza al modelo del enunciado que se muestra en la Figura \ref{uml_enunciado}.
+
+El mismo modelo UML se también representa el diseño lógico de la base de datos que se emplea en el proyecto donde se encuentran las relaciones entre las tablas, así como los datos primarios y básicos necesitados para el funcionamiento.
 
 \section{Diseño físico}
 
+Partiendo del modelo UML definido, se han escrito los comandos de la base de datos necesarios para el desarrollo del diseño físico que corresponde. en Este diseño es necesario que se incluyen todas las clases descritas anteriormente en el diseño lógico además de las relaciones y reglas de borrado y actualización
+
 \lstinputlisting[language=SQL]{disenyo_trabajo.sql}
-
-
 
 \chapter{Diseño de interfaces de usuario.}
 
 Para el diseño de interfaces de usuario hemos hecho un proceso de diseño centrado en el usuario en el que hemos llevado a cabo los siguientes pasos:
 \begin{itemize}
-\item \textbf{Planificación:} hemos identificado los objetivos del sitio web, las necesidades, requerimientos y objetivos de la usuario. Además hemos definido definen los objetivos técnicos, equipo de trabajo y presupuesto.
+\item \textbf{Planificación:} En este punto se identifican los objetivos del sitio web, las necesidades, requerimientos y objetivos de los usuarios, aparte de los objetivos técnicos, equipo de trabajo y presupuesto.
 
-\item \textbf{Diseño conceptual:} hicimos el sitemas del proyecto desarrollado en el que se ven las diferentes opciones a la hora de navegar por la página web desarrollada según el tipo de ro, que tengas dentro del proyecto ya sea empresa, DCC, BTC, o un alumno.
+\item \textbf{Diseño conceptual:} hicimos el sistemas del proyecto desarrollado en el que se ven las diferentes opciones a la hora de navegar por la página web desarrollada según el tipo de ro, que tengas dentro del proyecto ya sea empresa, DCC, BTC, o un alumno.
 
 \item \textbf{Diseño visual y definición de estilos:} acordamos una serie de características visuales que se mantienen durante todas las páginas por las que se pueden navegar a amas de otras características individuales, que se pueden ver en las siguientes imágenes de interfaces que hemos diseñado.
 
 \end{itemize}
+
+\section{Planificación}
+La planificación se ha inició primero realizando una lectura en grupo para analizar correctamente cuales son los requisitos que requiere el usuario. Para esto se decidió realizar una reunión todos juntos para poder de definir correctamente los objetivos del proyecto y las áreas de actuación de cada uno.
+
+En esta misma reunión se separaron las áreas de actuación para poder repartir equitativamente las horas que requiere el proyecto.
+La área de actuación de Joshua se traté de la parte de realización del funcionamiento lógico de la aplicación en sincronización con Víctor, mientras Joaquín y Paula se encargan de toda la parte visual. Entre todos se realiza tanto la memoria como la documentación técnica que se ha de entregar posterior mente y Paula se encarga de coordinar el grupo comprobando que se vaya al día.
+
+Además de todo esto quedamos en reunirnos todos los miércoles para poner en conjunto el trabajo realizado. Estas reuniones ha permitido realizar un gráfico en el que se muestra el avance del trabajo lo largo de las semanas como se ve en la Figura \ref{mapa_web}. También se crea un grupo de whatsapp para la comunicación y una carpeta de drive para poner en común el trabajo realizado.
+
+Este proyecto al emplearse como recuperación, Víctor se encarga de solucionar los fallos que se encuentran en la actual memoria, de los fallos de diseño y aplicación. Así también se realiza una tutoría con la profesora para comprobar el avance de la memoria y solucionar tanto dudas como fallos cometidos.
+
+Para coordinar el trabajo realizado por todos los miembros del equipo, lo que hemos hecho son quedadas grupales en las que hemos realizado diferentes partes del proyecto de forma conjunta a mes de distribuir algunas tareas individuales como puede ser la creación de la base de datos a partir del diseño físico o la realización de partes del código como el validadores. Además de la utilización del drive para poder poner en común los cambios realizados de forma individual en casa.
 
 \begin{figure}[h]
 \begin{center}
@@ -183,7 +196,6 @@ Para el diseño de interfaces de usuario hemos hecho un proceso de diseño centr
 \caption{\label{mapa_web} Mapa web con el acceso a los distintos contenidos.}
 \end{center}
 \end{figure}
-
 
 A continuación se puede observar tres ejemplos de interfaces que hemos desarrollado para nuestra página web, y que más adelante hemos evaluado.
 
@@ -207,7 +219,6 @@ En el paquete dao están las clases que acceden a nuestra base de datos.
 En el paquete modelo se encuentran las clases que hemos utilizado en nuestro diagrama de clases para la implementación.
 
 Para acabar comentar que todas las clases que aparecen en los paquetes mencionados anteriormente también aparecen el diagrama de clases elaborado al principio del desarrollo del proyecto.
-
 
 
 \chapter{Conclusiones} 
@@ -250,23 +261,23 @@ Sin embargo, en una futura revisión, se deberían corregir algunas carencias de
 %\bibliography{MemoriaTecnicaBibliografia.bib}
 
 \begin{thebibliography}{X}
-\bibitem{CasPractic}
- \textsc{EI1023 - Fonaments d’enginyeria del programari},
+\bibitem{caspractic}
+ \textsc{María Cristina Campos Sancho},
  \textit{Cas per al treball de pràctiques de l'assignatura},
  \url{https://docs.google.com/document/d/16aIXg8UdvHcTzhVyMVpaHZVP_KefRawoehEIr81dRNc/},
   29 de octubre de 2018.
 \bibitem{presentacion}
- \textsc{EI1027 - Disseny i Implementació de Sistemes d'informació},
+ \textsc{Ismael Sanz},
  \textit{Introducció a la usabilitat i el disseny d'interfícies},
  \url{https://docs.google.com/presentation/d/18kpzN31lZoxK2hXcdZPjD_FLBBdm8KG5-db__kYjlKk/},
   29 de octubre de 2018.
 \bibitem{ejercicio}
- \textsc{EI1027 - Disseny i Implementació de Sistemes d'informació},
+ \textsc{Lledó Museros Cabedo},
  \textit{Exercici Disseny d’interfícies d’usuari centrat en l’usuari},
  \url{https://docs.google.com/document/d/1g6bx4PCpFXTPRI6hy8UcK9XvFo6obJrpJBEnpC1UlSk/},
   29 de octubre de 2018.
 \bibitem{evaluacion}
- \textsc{EI1027 - Disseny i Implementació de Sistemes d'informació},
+ \textsc{Lledó Museros Cabedo e Ismael Sanz},
  \textit{Avaluació de llocs web},
  \url{https://docs.google.com/presentation/d/1wMODQ3NZlBf_bLPlPbN0X8dh-wjywwT8cy9EgVYpTh4/},
   29 de octubre de 2018.
