@@ -11,6 +11,8 @@
 \usepackage{eurosym} % para el euro
 \usepackage{enumerate}
 \usepackage{listings}    
+\usepackage{verbatim}
+
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
@@ -204,32 +206,40 @@ A continuación se presenta el informe del análisis heurístico realizado sobre
 
 
 \chapter{Implementación}
+
 \section{Decisiones de implementación}
 
-Durante el diseño de la página web realizada en la asignatura EI1027 - Diseño y implementación de sistemas de información, hemos realizado una estructura MVC (Modelo Vista Controlador) en el cual hemos desarrollado todas las clases necesarias para el proyecto en las cuales se instancian todos los posibles usuarios de la pagina web, también hay que mencionar que hemos añadido diferentes roles en la base de datos, ya que dependiendo del rol que se tenga en la página podrás acceder a cierta información. Por otra parte también hemos realizado varia páginas html, las cuales son las distintas páginas por las que los usuarios podrán navegar dependiendo de qué rol tienen. Por último se ha desarrollado una serie de controladores, los cuales, son los encargados de controlar el acceso a la base de datos.
+Durante el diseño de la página web realizada en la asignatura EI1027 - Diseño y implementación de sistemas de información, se ha realizado una estructura MVC (Modelo-Vista-Controlador) en el cual se han desarrollado todas las clases necesarias para el proyecto en las cuales se instancian todos los posibles usuarios de la pagina web.
+
+También hay que mencionar que se han añadido diferentes roles en la base de datos, ya que dependiendo del rol que se tenga en la página se puede acceder a cierta información.
+
+Por otra parte también se ha realizado varias páginas html, las cuales son las distintas páginas por las que los usuarios podrán navegar dependiendo de qué rol tienen. Por último se ha desarrollado una serie de controladores, los cuales, son los encargados de controlar el acceso a la base de datos.
+
 \section{Control de errores}
 
-Una vez se ha implementado el proyecto ha sido necesario un control de errores, ya que los usuarios no son perfectos y por lo tanto pueden tener errores a la hora de introducir datos en la página, para ello hemos implementado una serie de validadores para asegurarnos que los datos introducidos por el usuario son válidos y que, en caso de producirse un error durante su introducción, se informe de forma adecuada al usuario para que lo rectifique. Por último también ha sido necesario insertar ciertas restricciones para la correcta actualización de la base de datos. 
+Una vez se ha implementado el proyecto ha sido necesario un control de errores que valida los formularios de envío de información, ya que los usuarios no son perfectos y por lo tanto pueden tener errores a la hora de introducir datos en la página. 
+
+Para ello se han implementado una serie de validadores para asegurarnos que los datos introducidos por el usuario son válidos y que, en caso de producirse un error durante su introducción, se informe de forma adecuada al usuario para que lo rectifique. Por último también ha sido necesario insertar ciertas restricciones para la correcta actualización de la base de datos. 
 
 \section{Listado de paquetes y clases}
 
-En la figura 7 se muestra la estructura del proyecto, el paquete raíz está formado por tres paquetes: controller, dao y modelo.
-En el paquete controller es donde se almacenan los controladores de todas las clases y los validadores que se han implementado para la aplicación.
-En el paquete dao están las clases que acceden a nuestra base de datos.
-En el paquete modelo se encuentran las clases que hemos utilizado en nuestro diagrama de clases para la implementación.
+En este apartado encontramos las carpetas y ficheros en forma de árbol en la Figura \ref{arbol}, empleados en el desarrollo de la aplicación estando separados en las carpetas \emph{modelo}, \emph{dao} y \emph{controller} como bien se ha explicado en el apartado anterior por el \emph{MVC}.
 
-Para acabar comentar que todas las clases que aparecen en los paquetes mencionados anteriormente también aparecen el diagrama de clases elaborado al principio del desarrollo del proyecto.
+\begin{itemize}
+\item En el paquete \emph{controller} se encuentran almacenados los controladores de todas las clases y los validadores que se han implementado para la aplicación.
+\item En el paquete \emph{dao} están las clases que acceden a nuestra base de datos.
+\item En el paquete \emph{modelo} dispone de las clases que hemos utilizado en nuestro diagrama de clases para la implementación.
+\end{itemize}
 
+\verbatiminput{arbol.txt}
+\begin{figure}[h]
+\begin{center}
+\caption{\label{arbol} Lista de ficheros empleados en el desarrollo de la aplicación empleando el patrón MVC.}
+\end{center}
+\end{figure}
 
 \chapter{Conclusiones} 
 Como conclusión hay que decir que el proyecto desarrollado en la asignatura EI1027 - Diseño e Implementación de Sistemas de información ha sido un proyecto que se ha desarrollado durado meses y que ha tenido una carga de trabajo bastante elevada, pero por otro lado es un proyecto muy completo en el que hemos visto todas las etapas para la realización de un sitio web de forma correcta, además de que ha sido un proyecto en el que hemos aprendido muchas herramientas, las cuales, seguro que utilizaremos en un futuro .
-
-
-
-
-
-
-
 
 
 %Se pueden presentar conclusiones en varios aspectos: 
