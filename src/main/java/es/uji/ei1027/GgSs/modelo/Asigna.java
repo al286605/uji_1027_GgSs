@@ -3,7 +3,8 @@ package es.uji.ei1027.GgSs.modelo;
 import java.util.Date;
 
 public class Asigna {
-	private int proyecto;
+	private Integer proyecto;
+	private String id_alumno;
 	private String alumno;
 
 	private String profesor;
@@ -14,10 +15,10 @@ public class Asigna {
 	private Date fecha_peticion_cambio;
 	private String comentario_peticion_cambio;
 	
-	public int getProyecto() {
+	public Integer getProyecto() {
 		return proyecto;
 	}
-	public void setProyecto(int proyecto) {
+	public void setProyecto(Integer proyecto) {
 		this.proyecto = proyecto;
 	}
 	public String getAlumno() {
@@ -68,6 +69,12 @@ public class Asigna {
 	}
 	public void setFecha_peticion_cambio(Date fecha_peticion_cambio) {
 		this.fecha_peticion_cambio = fecha_peticion_cambio;
+	}
+	public String getId_alumno() {
+		return id_alumno;
+	}
+	public void setId_alumno(String id_alumno) {
+		this.id_alumno = id_alumno;
 	}
 
 

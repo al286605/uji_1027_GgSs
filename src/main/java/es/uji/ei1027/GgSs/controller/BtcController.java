@@ -156,7 +156,7 @@ public class BtcController {
     }
     
     @RequestMapping(value="/oferta/{id}", method = RequestMethod.GET) 
-    public String viewEstudiante(Model model, @PathVariable int id, HttpSession session) {
+    public String viewEstudiante(Model model, @PathVariable Integer id, HttpSession session) {
     	Oferta_de_proyecto oferta = ofertaDao.getOferta_de_proyecto(id);
         model.addAttribute("oferta", oferta);
         session.setAttribute("oferta", oferta);
@@ -218,7 +218,7 @@ public class BtcController {
     }
     
     @RequestMapping(value="/preferencies_alumnes/{alumno}/{id}", method = RequestMethod.GET) 
-    public String viewPreferencia(Model model, @PathVariable String alumno, @PathVariable int id, HttpSession session) {
+    public String viewPreferencia(Model model, @PathVariable String alumno, @PathVariable Integer id, HttpSession session) {
     	Usuario user = (Usuario)session.getAttribute("usuario");
     	if(user == null || (!user.getRol().equals("btc") && !user.getRol().equals("groot")))
     		return "/no_acces";
@@ -233,7 +233,7 @@ public class BtcController {
     
     @RequestMapping(value="/preferencies_alumnes/{alumno}/{id}", method = RequestMethod.POST) 
     public String setPreferencia(Model model, @PathVariable String alumno,
-    		@PathVariable int id, HttpSession session,
+    		@PathVariable Integer id, HttpSession session,
     		@ModelAttribute("asignacion") Asigna asignacion) {
     	Usuario user = (Usuario)session.getAttribute("usuario");
     	if(user == null || (!user.getRol().equals("btc") && !user.getRol().equals("groot")))
@@ -297,12 +297,12 @@ public class BtcController {
     	Usuario user = (Usuario)session.getAttribute("usuario");
     	if(user == null || (!user.getRol().equals("btc") && !user.getRol().equals("groot")))
     		return "/no_acces";
-        model.addAttribute("asignaciones", asignaDao.getAsignaciones());
+        model.addAttribute("asignaciones", asignaDao.getAsignacionesRealizadas());
         return raiz + "/asignaciones";
     }
 
     @RequestMapping("/asignacio/{alumne}/{id}") 
-    public String viewAsignacio(Model model,@PathVariable String alumne,@PathVariable int id, HttpSession session) { 
+    public String viewAsignacio(Model model,@PathVariable String alumne,@PathVariable Integer id, HttpSession session) { 
     	Usuario user = (Usuario)session.getAttribute("usuario");
     	if(user == null || (!user.getRol().equals("btc") && !user.getRol().equals("groot")))
     		return "/no_acces";

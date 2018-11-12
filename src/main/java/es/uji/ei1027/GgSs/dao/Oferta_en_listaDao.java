@@ -78,7 +78,7 @@ public class Oferta_en_listaDao {
 		return ofertas;
 	}
 
-	public Oferta_de_proyecto getOferta(int id, String alias_estudiante) {
+	public Oferta_de_proyecto getOferta(Integer id, String alias_estudiante) {
 		//TODO itinerario no está bien del todo
 		Oferta_de_proyecto oferta = this.jdbcTemplate.queryForObject(
 		     	"select " + datos_sql

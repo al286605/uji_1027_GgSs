@@ -1,0 +1,101 @@
+.
+├── java
+│   └── es
+│       └── uji
+│           └── ei1027
+│               └── GgSs
+│                   ├── controller
+│                   │   ├── AccessController.java
+│                   │   ├── AsignaController.java
+│                   │   ├── BtcController.java
+│                   │   ├── DccController.java
+│                   │   ├── DccValidator.java
+│                   │   ├── EmpresaController.java
+│                   │   ├── EmpresaValidator.java
+│                   │   ├── EstudianteController.java
+│                   │   ├── EstudianteValidator.java
+│                   │   ├── RegistrarEmpresaController.java
+│                   │   └── TutorController.java
+│                   ├── dao
+│                   │   ├── AsignacionDao.java
+│                   │   ├── BtcDao.java
+│                   │   ├── EmpresaDao.java
+│                   │   ├── EstadoDao.java
+│                   │   ├── EstudianteDao.java
+│                   │   ├── ItinerariosDao.java
+│                   │   ├── Oferta_de_proyectoDao.java
+│                   │   ├── Oferta_en_listaDao.java
+│                   │   ├── PersonaDeContactoDao.java
+│                   │   ├── Preferencia_alumnoDao.java
+│                   │   ├── RevisionesDao.java
+│                   │   ├── RolDao.java
+│                   │   ├── TutorDao.java
+│                   │   └── UsuarioDao.java
+│                   ├── GgSsApplication.java
+│                   ├── GgSsConfiguration.java
+│                   └── modelo
+│                       ├── Asigna.java
+│                       ├── Btc.java
+│                       ├── Empresa.java
+│                       ├── Estado.java
+│                       ├── Estudiante.java
+│                       ├── Itinerario.java
+│                       ├── ItinerarioOfertaProyecto.java
+│                       ├── Oferta_de_proyecto.java
+│                       ├── PersonaDeContacto.java
+│                       ├── Preferencia_alumno.java
+│                       ├── Revision.java
+│                       ├── Rol.java
+│                       ├── Tutor.java
+│                       ├── UserContacto.java
+│                       └── Usuario.java
+└── resources
+    ├── application.properties
+    ├── static
+    │   ├── admin.html
+    │   └── css
+    │       ├── acces.css
+    │       ├── alumne.css
+    │       └── registre_empresa.css
+    └── templates
+        ├── acces.html
+        ├── alumne
+        │   ├── confirmacio_semestre.html
+        │   ├── inicio_asignacion.html
+        │   ├── listar_ofertas.html
+        │   ├── seleccio_semestre.html
+        │   └── veure_oferta.html
+        ├── btc
+        │   ├── alumnos_con_preferencias.html
+        │   ├── asignaciones.html
+        │   ├── asignacion_realizada.html
+        │   ├── asignar_oferta.html
+        │   ├── confirmar_asignacio_oferta.html
+        │   ├── index.html
+        │   ├── ofertas_aceptadas.html
+        │   ├── ofertas_listadas.html
+        │   ├── preferencias_alumnos.html
+        │   ├── ver_asignacio.html
+        │   └── veure_oferta.html
+        ├── dcc
+        │   ├── confirmar_aceptar.html
+        │   ├── confirmar_rebutx.html
+        │   ├── listar_ofertas.html
+        │   └── veure_oferta.html
+        ├── empresa
+        │   ├── crear_oferta.html
+        │   ├── editar_oferta.html
+        │   ├── historico.html
+        │   ├── index.html
+        │   └── veure_oferta.html
+        ├── fragments
+        │   ├── base.html
+        │   └── header_general.html
+        ├── no_acces.html
+        └── registre_empresa
+            ├── contacte_empresa_afegit.html
+            ├── contacte_empresa.html
+            ├── index.html
+            └── trobar_empresa.html
+
+18 directories, 80 files
