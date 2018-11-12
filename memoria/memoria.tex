@@ -170,13 +170,13 @@ Partiendo del modelo UML definido, se han escrito los comandos de la base de dat
 
 \chapter{Diseño de interfaces de usuario.}
 
-Para el diseño de interfaces de usuario hemos hecho un proceso de diseño centrado en el usuario en el que hemos llevado a cabo los siguientes pasos:
+Para el diseño de interfaces de usuario se ha hecho un proceso de diseño centrado en el usuario en el que hemos llevado a cabo los siguientes pasos:
 \begin{itemize}
 \item \textbf{Planificación:} En este punto se identifican los objetivos del sitio web, las necesidades, requerimientos y objetivos de los usuarios, aparte de los objetivos técnicos, equipo de trabajo y presupuesto.
 
-\item \textbf{Diseño conceptual:} hicimos el sistemas del proyecto desarrollado en el que se ven las diferentes opciones a la hora de navegar por la página web desarrollada según el tipo de ro, que tengas dentro del proyecto ya sea empresa, DCC, BTC, o un alumno.
+\item \textbf{Diseño conceptual:} Se hizo el sistemas del proyecto desarrollado en el que se ven las diferentes opciones a la hora de navegar por la página web desarrollada según el tipo de rol, que tengas dentro del proyecto ya sea empresa, DCC, BTC o un alumno.
 
-\item \textbf{Diseño visual y definición de estilos:} acordamos una serie de características visuales que se mantienen durante todas las páginas por las que se pueden navegar a amas de otras características individuales, que se pueden ver en las siguientes imágenes de interfaces que hemos diseñado.
+\item \textbf{Diseño visual y definición de estilos:} se acordó una serie de características visuales que se mantienen durante todas las páginas por las que se pueden navegar a amas de otras características individuales, así como también se ven los distintos test realizados, tantos de usuario como heurísticos.
 
 \end{itemize}
 
@@ -184,13 +184,19 @@ Para el diseño de interfaces de usuario hemos hecho un proceso de diseño centr
 La planificación se ha inició primero realizando una lectura en grupo para analizar correctamente cuales son los requisitos que requiere el usuario. Para esto se decidió realizar una reunión todos juntos para poder de definir correctamente los objetivos del proyecto y las áreas de actuación de cada uno.
 
 En esta misma reunión se separaron las áreas de actuación para poder repartir equitativamente las horas que requiere el proyecto.
-La área de actuación de Joshua se traté de la parte de realización del funcionamiento lógico de la aplicación en sincronización con Víctor, mientras Joaquín y Paula se encargan de toda la parte visual. Entre todos se realiza tanto la memoria como la documentación técnica que se ha de entregar posterior mente y Paula se encarga de coordinar el grupo comprobando que se vaya al día.
+La área de actuación de Joshua se traté de la parte de realización del funcionamiento lógico de la aplicación en sincronización con Víctor, mientras Joaquín y Paula se encargan de toda la parte visual. Entre todos se realiza tanto la memoria como la documentación técnica que se ha de entregar posterior mente y Paula se encarga de coordinar el grupo comprobando que las tareas se van realizando semanalmente.
 
-Además de todo esto quedamos en reunirnos todos los miércoles para poner en conjunto el trabajo realizado. Estas reuniones ha permitido realizar un gráfico en el que se muestra el avance del trabajo lo largo de las semanas como se ve en la Figura \ref{mapa_web}. También se crea un grupo de whatsapp para la comunicación y una carpeta de drive para poner en común el trabajo realizado.
+Además de todo esto quedamos en reunirnos todos los miércoles para poner en conjunto el trabajo realizado. Estas reuniones ha permitido realizar un gráfico en el que se muestra el avance del trabajo lo largo de las semanas. También se crea un grupo de whatsapp para la comunicación y una carpeta de drive para poner en común el trabajo realizado.
 
 Este proyecto al emplearse como recuperación, Víctor se encarga de solucionar los fallos que se encuentran en la actual memoria, de los fallos de diseño y aplicación. Así también se realiza una tutoría con la profesora para comprobar el avance de la memoria y solucionar tanto dudas como fallos cometidos.
 
-Para coordinar el trabajo realizado por todos los miembros del equipo, lo que hemos hecho son quedadas grupales en las que hemos realizado diferentes partes del proyecto de forma conjunta a mes de distribuir algunas tareas individuales como puede ser la creación de la base de datos a partir del diseño físico o la realización de partes del código como el validadores. Además de la utilización del drive para poder poner en común los cambios realizados de forma individual en casa.
+\section{Diseño conceptual}
+
+Respecto al diseño conceptual, se pensó en una aplicación que según el rol detectado por el sistema al introducir el usuario, aparezca una página la cual es requerida por el usuario.
+
+A partir de este punto, dependiendo del rol que tiene el usuario, se vuelven a separar las páginas a las que puede acceder el usuario, variando en según el punto en el que se encuentra el usuario.
+
+De una forma más gráfica que encontramos en la Figura \ref{mapa_web} el mapa web el cual se ha diseñado para toda la plataforma, donde se encuentran las distintas partes a las que se pueden acceder en función del usuario con el que se accede.
 
 \begin{figure}[h]
 \begin{center}
@@ -199,10 +205,138 @@ Para coordinar el trabajo realizado por todos los miembros del equipo, lo que he
 \end{center}
 \end{figure}
 
-A continuación se puede observar tres ejemplos de interfaces que hemos desarrollado para nuestra página web, y que más adelante hemos evaluado.
+\section{Diseño visual y definición de estilos}
 
 
-A continuación se presenta el informe del análisis heurístico realizado sobre el sitio SAPE con fecha 25/06/2018
+A continuación se puede observar tres ejemplos de interfaces que hemos desarrollado para nuestra página web en las Figuras \ref{interfaz1}, \ref{interfaz2} y \ref{interfaz3}. Estas imagenes representan que es aquello que ve el usuario o el profesor con el rol BTC, viendo así como es el uso de la aplicación y el diseño empleado en la aplicación repetida durante todo el proceso.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/intefaz1.jpg}
+\caption{\label{interfaz1}Esta interfaz permite al alumno puede ver y seleccionar sus preferencias de las prácticas que quiere realizar.}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/intefaz2.jpg}
+\caption{\label{interfaz2}Esta interfaz permite al profesor con permisos BTC puede visualizar las prácticas y tener control sobre ellas.}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/intefaz3.jpg}
+\caption{\label{interfaz3}Esta interfaz permite al alumno aceptar o rechazar las prácticas de usuario asignadas por el profesor.}
+\end{center}
+\end{figure}
+
+El propio equipo y también con la ayuda de familiares y amigos realizó distintos tipos de test enseñados a lo largo del curso, basándose principalmente en el material del profesorado \cite{evaluacion}.
+
+Primero se expone el análisis heurístico realizado por el propio equipo. Las siguientes Figuras \ref{heuristico1}, \ref{heuristico2}, \ref{heuristico3}, \ref{heuristico4}, \ref{heuristico5}, \ref{heuristico6}, \ref{heuristico7}, \ref{heuristico8}, \ref{heuristico9}, \ref{heuristico10}, \ref{heuristico11}, \ref{heuristico12} y \ref{heuristico13} muestran los resultados obtenidos en el test, mostrando sólo el promedio recibido del total de las pruebas.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/heuristico1}
+\caption{\label{heuristico1}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/heuristico2}
+\caption{\label{heuristico2}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/heuristico3}
+\caption{\label{heuristico3}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/heuristico4}
+\caption{\label{heuristico4}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/heuristico5}
+\caption{\label{heuristico5}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/heuristico6}
+\caption{\label{heuristico6}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/heuristico7}
+\caption{\label{heuristico7}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/heuristico8}
+\caption{\label{heuristico8}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/heuristico9}
+\caption{\label{heuristico9}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/heuristico10}
+\caption{\label{heuristico10}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/heuristico11}
+\caption{\label{heuristico11}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/heuristico12}
+\caption{\label{heuristico12}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/heuristico13}
+\caption{\label{heuristico13}}
+\end{center}
+\end{figure}
+
+Para una evaluación correcta de las interfaces también ha sido necesario la realización de un cuestionario de aceptación de usuarios. En la Figura \ref{test_usuarios} se puede observar el cuestionario realizado junto con el promedio sacado en las respuestas.
+
+A partir de este resultado podemos observar que el resultado no resulta tan negativo, todo lo contrario. Ofrece una buena experiencia al usuario capaz de realizar las tareas de forma deseada.
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=\textwidth]{img/test_usuarios}
+\caption{\label{test_usuarios}}
+\end{center}
+\end{figure}
 
 
 \chapter{Implementación}
@@ -239,8 +373,9 @@ En este apartado encontramos las carpetas y ficheros en forma de árbol en la Fi
 \end{figure}
 
 \chapter{Conclusiones} 
-Como conclusión hay que decir que el proyecto desarrollado en la asignatura EI1027 - Diseño e Implementación de Sistemas de información ha sido un proyecto que se ha desarrollado durado meses y que ha tenido una carga de trabajo bastante elevada, pero por otro lado es un proyecto muy completo en el que hemos visto todas las etapas para la realización de un sitio web de forma correcta, además de que ha sido un proyecto en el que hemos aprendido muchas herramientas, las cuales, seguro que utilizaremos en un futuro .
+Como conclusión hay que decir que el proyecto desarrollado en la asignatura EI1027 - Diseño e Implementación de Sistemas de información ha sido un proyecto que se ha desarrollado durado meses y que ha tenido una carga de trabajo bastante elevada.
 
+Por otro lado es un proyecto muy completo en el que hemos visto todas las etapas para la realización de un sitio web de forma correcta, además de que ha sido un proyecto en el que hemos aprendido muchas herramientas, las cuales, seguro que utilizaremos en un futuro .
 
 %Se pueden presentar conclusiones en varios aspectos: 
 %en el ámbito formativo (sobre lo que has aprendido),
@@ -249,20 +384,9 @@ Como conclusión hay que decir que el proyecto desarrollado en la asignatura EI1
 %En las conclusiones, además de las consideraciones personales, académicas o profesionales que el alumno quiera comentar, 
 %se pueden incluir posibles extensiones del proyecto, así como la viabilidad comercial o empresarial cuando proceda.
 
-Durante el desarrollo de la aplicación, se han adquirido nuevas competencias que se desconocían, como la resolución rápida de conflictos, la capacidad de documentar aplicaciones y las sinergias de trabajar con otros departamentos.
+Durante el desarrollo de la aplicación, se han adquirido nuevas competencias que se desconocían, como la resolución rápida de conflictos, la capacidad de documentar aplicaciones y las sinergias de trabajar en grupo.
 
-Además la aplicación ha conseguido evolucionar más sin la necesidad de emplear mucho tiempo en su desarrollo, añadiendo funcionalidades como puede ser realizar un volcado de datos a un fichero, tener un control de registros de eventos de las solicitudes recibidas y almacenarlas en un fichero intermediario entre la aplicación y el \emph{PLC}. No solo se han cumplido los objetivos básicos inicialmente establecidos, sino que además se han incluido otros que pueden ser de gran ayuda.
-
-Sin embargo, en una futura revisión, se deberían corregir algunas carencias del sistema:
-\begin{itemize}
-\item Simulación del \emph{PLC} más real.
-\item Añadir control de versión del \emph{PLC}.
-\item Permitir almacenar los datos en la ubicación que el usuario desee.
-\item Permitir leer los datos en la ubicación que el usuario desee.
-\item Permitir cambiar el puerto de escucha por defecto.
-\item Permitir almacenar una copia del registro de eventos.
-\item Autoaprendizaje mediante inteligencia artificial para simular con la mayor precisión posible.
-\end{itemize}
+Además la aplicación ha conseguido un funcionamiento bastante mejor del esperado, cumpliendo así los objetivos establecidos e incluidos a lo largo del curso.
 
 
 % ------------------- Bibliografia ---------------------
