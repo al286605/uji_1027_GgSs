@@ -162,9 +162,22 @@ Con el modelo ofrecido en el apartado anterior, se ha decidido generar el nuestr
 
 El mismo modelo UML se también representa el diseño lógico de la base de datos que se emplea en el proyecto donde se encuentran las relaciones entre las tablas, así como los datos primarios y básicos necesitados para el funcionamiento.
 
-\section{Diseño físico}
+\section{Diseño lógico de la base de datos}
 
-Partiendo del modelo UML definido, se han escrito los comandos de la base de datos necesarios para el desarrollo del diseño físico que corresponde. en Este diseño es necesario que se incluyen todas las clases descritas anteriormente en el diseño lógico además de las relaciones y reglas de borrado y actualización
+A partir del modelo UML generado en el apartado anterior, se empieza a pensar en el posible aspecto que debería de tener la base de datos. Si se observa la Figura \ref{logico} se encuentra bastante parecido al diagrama UML, ya que las relaciones son muy semejantes unas a otras.
+
+Cabe destacar que todas las relaciones que se generan entre las distintas tablas tienen una política de borrado restrictivo y modificación en cascada debido a que la información entre las distintas tablas tienen una gran adhesión unas con otras al tener que disponer en todo momento del mismo dato.
+
+\begin{figure}[]
+\begin{center}
+\includegraphics[width=\textwidth]{img/logico}
+\caption{\label{logico} Diseño lógico de la base de datos del cual se parte en el diseño físico. Se puede observar en subrayado las claves primarias y las que tienen el punto vacío pueden ser nulas.}
+\end{center}
+\end{figure}
+
+\section{Diseño físico de la base de datos}
+
+Partiendo del diseño lógico definido en el apartado anterior, se han escrito los comandos de la base de datos necesarios para el desarrollo del diseño físico que corresponde. en Este diseño es necesario que se incluyen todas las clases descritas anteriormente en el diseño lógico además de las relaciones y reglas de borrado y actualización.
 
 \lstinputlisting[language=SQL]{disenyo_trabajo.sql}
 
@@ -328,7 +341,7 @@ Primero se expone el análisis heurístico realizado por el propio equipo. Las s
 
 Para una evaluación correcta de las interfaces también ha sido necesario la realización de un cuestionario de aceptación de usuarios. En la Figura \ref{test_usuarios} se puede observar el cuestionario realizado junto con el promedio sacado en las respuestas.
 
-A partir de este resultado podemos observar que el resultado no resulta tan negativo, todo lo contrario. Ofrece una buena experiencia al usuario capaz de realizar las tareas de forma deseada.
+A partir de los resultados obtenidos se observa que la crítica no resulta tan negativa, todo lo contrario. Ofrece una buena experiencia al usuario capaz de realizar las tareas de forma deseada, ayudando a cumplir con el diseño de la aplicación.
 
 
 \begin{figure}[h]
